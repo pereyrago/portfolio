@@ -1,5 +1,4 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Proyects from "./components/Proyects";
@@ -11,23 +10,11 @@ function App() {
   return (
     <>
       <NavBar />
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/about" exact>
-          <About />
-        </Route>
-        <Route path="/proyects" exact>
-          <Proyects />
-        </Route>
-        <Route path="/contact" exact>
-          <Contact />
-        </Route>
-        <Route path="/skills" exact>
-          <Skills />
-        </Route>
-      </Switch>
+      <Home id="home" />
+      <Proyects id="proyects" />
+      <Skills id="skills" />
+      <About id="about" />
+      <Contact id="contact" />
       <Footer />
     </>
   );

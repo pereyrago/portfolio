@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Colors from "../../Colors.js";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,13 +8,12 @@ import OpenMenu from "../Images/Menu";
 
 const NavBar = () => {
   const [menu, setMenu] = useState(true);
-  const nocturneMode = useSelector((store) => store.nocturneMode);
+  const nocturneMode = useSelector((shrefre) => shrefre.nocturneMode);
 
   const dispatch = useDispatch();
 
   const modoNoche = () => {
-    dispatch(changeNocturneMode);
-    return console.log(nocturneMode);
+    return dispatch(changeNocturneMode);
   };
 
   return (
@@ -29,31 +27,31 @@ const NavBar = () => {
         >
           LOGO
         </button>
-        <NavLink style={{ textDecoration: "none" }} to="/">
+        <a style={{ textDecoration: "none" }} href="#home">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
             Inicio
           </Sections>
-        </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/proyects">
+        </a>
+        <a style={{ textDecoration: "none" }} href="#proyects">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
             Proyectos
           </Sections>
-        </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/skills">
+        </a>
+        <a style={{ textDecoration: "none" }} href="#skills">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
             Habilidades
           </Sections>
-        </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/about">
+        </a>
+        <a style={{ textDecoration: "none" }} href="#about">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
             Sobre mi
           </Sections>
-        </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/contact">
+        </a>
+        <a style={{ textDecoration: "none" }} href="#contact">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
             Contáctame
           </Sections>
-        </NavLink>
+        </a>
 
         <OpenMenuBtn onClick={() => setMenu(!menu)}>
           <OpenMenu size="38" color={Colors(nocturneMode).TERTIARY} />
@@ -79,51 +77,51 @@ const NavBar = () => {
           </BackBtn>
         </MenuTitle>
         <MenuBody>
-          <NavLink
+          <a
             style={{ textDecoration: "none" }}
-            to="/home"
+            href="#home"
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
               Inicio
             </SectionsMb>
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             style={{ textDecoration: "none" }}
-            to="/proyects"
+            href="#proyects"
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
               Proyectos
             </SectionsMb>
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             style={{ textDecoration: "none" }}
-            to="/skills"
+            href="#skills"
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
               Habilidades
             </SectionsMb>
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             style={{ textDecoration: "none" }}
-            to="/about"
+            href="#about"
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
               Sobre mí
             </SectionsMb>
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             style={{ textDecoration: "none" }}
-            to="/contact"
+            href="#contact"
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
               Contáctame
             </SectionsMb>
-          </NavLink>
+          </a>
         </MenuBody>
       </Menu>
     </>
@@ -135,7 +133,7 @@ export default NavBar;
 //ESTILOS
 
 const Nav = styled.div`
-  width: 100vw;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin: 0;
@@ -163,14 +161,14 @@ const Sections = styled.div`
   }
 `;
 const SectionsMb = styled.div`
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bolder;
-  margin: 35px;
+  margin: 40px;
   font-family: Arial;
 `;
 const Menu = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   top: 0;
   left: 0;
   position: fixed;
@@ -202,7 +200,7 @@ const OpenMenuBtn = styled.div`
   }
 `;
 const MenuBody = styled.div`
-  margin-top: 10%;
+  margin-hrefp: 10%;
   height: 80vh;
   justify-content: space-between;
 `;

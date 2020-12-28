@@ -12,7 +12,7 @@ const Foot = styled.div`
   height: auto;
   padding-top: 40px;
   background-color: black;
-  width: 100vw;
+  width: 100%;
   padding-bottom: 20px;
   @media (max-width: 600px) {
     height: auto;

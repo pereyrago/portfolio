@@ -5,10 +5,13 @@ import Colors from "../../Colors";
 
 const Container = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 1s;
+  margin: 0;
+  padding: 1;
 `;
 const BtnStart = styled.div`
   display: flex;
@@ -22,18 +25,21 @@ const BtnStart = styled.div`
     width: 45%;
   }
 `;
-const Home = () => {
+const Home = ({ id }) => {
   const nocturneMode = useSelector((store) => store.nocturneMode);
   return (
     <>
-      <Container style={{ backgroundColor: Colors(nocturneMode).TERTIARY }}>
+      <Container
+        id={id}
+        style={{ backgroundColor: Colors(nocturneMode).TERTIARY }}
+      >
         <BtnStart
           style={{
             color: Colors(nocturneMode).TERTIARY,
-            backgroundColor: Colors(nocturneMode).SECONDARY,
+            backgroundColor: Colors(nocturneMode).PRIMARY,
           }}
         >
-          Iniciar
+          Texto
         </BtnStart>
       </Container>
     </>
