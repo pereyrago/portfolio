@@ -4,6 +4,77 @@ import styled from "styled-components";
 import Colors from "../../Colors.js";
 import { useSelector, useDispatch } from "react-redux";
 import changeNocturneMode from "../../store/actions";
+import RightArrow from "../Images/RightArrow";
+import OpenMenu from "../Images/Menu";
+
+const NavBar = () => {
+  const [menu, setMenu] = useState(false);
+  const nocturneMode = useSelector((store) => store.nocturneMode);
+
+  const dispatch = useDispatch();
+
+  const modoNoche = () => {
+    dispatch(changeNocturneMode);
+    return console.log(nocturneMode);
+  };
+
+  return (
+    <>
+      <Nav style={{ backgroundColor: Colors(nocturneMode).PRIMARY }}>
+        <button
+          onClick={() => modoNoche()}
+          style={{
+            textAlign: "center",
+          }}
+        >
+          LOGO
+        </button>
+        <NavLink style={{ textDecoration: "none" }} to="/">
+          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
+            A Home
+          </Sections>
+        </NavLink>
+        <NavLink style={{ textDecoration: "none" }} to="/proyects">
+          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
+            A Proyects
+          </Sections>
+        </NavLink>
+        <NavLink style={{ textDecoration: "none" }} to="/skills">
+          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
+            A Skills
+          </Sections>
+        </NavLink>
+        <NavLink style={{ textDecoration: "none" }} to="/about">
+          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
+            A About
+          </Sections>
+        </NavLink>
+        <NavLink style={{ textDecoration: "none" }} to="/contact">
+          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
+            A Contact
+          </Sections>
+        </NavLink>
+
+        <div onClick={() => setMenu(!menu)}>
+          <OpenMenu size="38" fill="black" />
+        </div>
+      </Nav>
+      <Menu style={{ transform: menu ? "translatex(200%)" : "translatex(0%)" }}>
+        <MenuTitle>
+          <TextMenu>Gabriel Pereyra</TextMenu>
+          <BackBtn onClick={() => setMenu(!menu)}>
+            <RightArrow size={50} fill="black" />
+          </BackBtn>
+        </MenuTitle>
+      </Menu>
+    </>
+  );
+};
+
+export default NavBar;
+
+//ESTILOS
+
 const Nav = styled.div`
   width: 100vw;
   display: grid;
@@ -52,60 +123,17 @@ const Menu = styled.div`
     transition: 0.5s;
   }
 `;
-const NavBar = () => {
-  const [menu, setMenu] = useState(false);
-  const nocturneMode = useSelector((store) => store.nocturneMode);
-
-  const dispatch = useDispatch();
-
-  const modoNoche = () => {
-    dispatch(changeNocturneMode);
-    return console.log(nocturneMode);
-  };
-
-  return (
-    <>
-      <Nav style={{ backgroundColor: Colors(nocturneMode).PRIMARY }}>
-        <button
-          onClick={() => modoNoche()}
-          style={{
-            textAlign: "center",
-          }}
-        >
-          LOGO
-        </button>
-        <NavLink style={{ textDecoration: "none" }} to="/">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A Home
-          </Sections>
-        </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/proyects">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A Proyects
-          </Sections>
-        </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/skills">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A Skills
-          </Sections>
-        </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/about">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A About
-          </Sections>
-        </NavLink>
-        <NavLink style={{ textDecoration: "none" }} to="/contact">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A Contact
-          </Sections>
-        </NavLink>
-        <BtnMenu onClick={() => setMenu(!menu)}>Menu</BtnMenu>
-      </Nav>
-      <Menu style={{ transform: menu ? "translatex(200%)" : "translatex(0%)" }}>
-        <button onClick={() => setMenu(!menu)}>Gabito</button>
-      </Menu>
-    </>
-  );
-};
-
-export default NavBar;
+const BackBtn = styled.div`
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+`;
+const MenuTitle = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+`;
+const TextMenu = styled.div`
+  font-size: 50px;
+  padding-top: 10px;
+`;
