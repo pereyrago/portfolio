@@ -20,7 +20,7 @@ const NavBar = () => {
 
   return (
     <>
-      <Nav style={{ backgroundColor: Colors(nocturneMode).PRIMARY }}>
+      <Nav style={{ backgroundColor: Colors(nocturneMode).SECONDARY }}>
         <button
           onClick={() => modoNoche()}
           style={{
@@ -31,27 +31,27 @@ const NavBar = () => {
         </button>
         <NavLink style={{ textDecoration: "none" }} to="/">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A Home
+            Inicio
           </Sections>
         </NavLink>
         <NavLink style={{ textDecoration: "none" }} to="/proyects">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A Proyects
+            Proyectos
           </Sections>
         </NavLink>
         <NavLink style={{ textDecoration: "none" }} to="/skills">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A Skills
+            Habilidades
           </Sections>
         </NavLink>
         <NavLink style={{ textDecoration: "none" }} to="/about">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A About
+            Sobre mi
           </Sections>
         </NavLink>
         <NavLink style={{ textDecoration: "none" }} to="/contact">
           <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            A Contact
+            Contáctame
           </Sections>
         </NavLink>
 
@@ -85,7 +85,7 @@ const NavBar = () => {
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Home
+              Inicio
             </SectionsMb>
           </NavLink>
           <NavLink
@@ -94,7 +94,7 @@ const NavBar = () => {
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Proyects
+              Proyectos
             </SectionsMb>
           </NavLink>
           <NavLink
@@ -103,7 +103,7 @@ const NavBar = () => {
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Skills
+              Habilidades
             </SectionsMb>
           </NavLink>
           <NavLink
@@ -112,7 +112,7 @@ const NavBar = () => {
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              About
+              Sobre mí
             </SectionsMb>
           </NavLink>
           <NavLink
@@ -121,7 +121,7 @@ const NavBar = () => {
             onClick={() => setMenu(!menu)}
           >
             <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Contact
+              Contáctame
             </SectionsMb>
           </NavLink>
         </MenuBody>
