@@ -8,7 +8,7 @@ import RightArrow from "../Images/RightArrow";
 import OpenMenu from "../Images/Menu";
 
 const NavBar = () => {
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(true);
   const nocturneMode = useSelector((store) => store.nocturneMode);
 
   const dispatch = useDispatch();
@@ -55,17 +55,76 @@ const NavBar = () => {
           </Sections>
         </NavLink>
 
-        <div onClick={() => setMenu(!menu)}>
-          <OpenMenu size="38" fill="black" />
-        </div>
+        <OpenMenuBtn onClick={() => setMenu(!menu)}>
+          <OpenMenu size="38" color={Colors(nocturneMode).TERTIARY} />
+        </OpenMenuBtn>
       </Nav>
-      <Menu style={{ transform: menu ? "translatex(200%)" : "translatex(0%)" }}>
+      <Menu
+        style={{
+          transform: menu ? "translatex(200%)" : "translatex(0%)",
+          backgroundColor: Colors(nocturneMode).PRIMARY,
+        }}
+      >
         <MenuTitle>
-          <TextMenu>Gabriel Pereyra</TextMenu>
+          <button
+            onClick={() => modoNoche()}
+            style={{
+              textAlign: "center",
+            }}
+          >
+            LOGO
+          </button>
           <BackBtn onClick={() => setMenu(!menu)}>
-            <RightArrow size={50} fill="black" />
+            <RightArrow size={50} color={Colors(nocturneMode).TERTIARY} />
           </BackBtn>
         </MenuTitle>
+        <MenuBody>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to="/home"
+            onClick={() => setMenu(!menu)}
+          >
+            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
+              Home
+            </SectionsMb>
+          </NavLink>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to="/proyects"
+            onClick={() => setMenu(!menu)}
+          >
+            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
+              Proyects
+            </SectionsMb>
+          </NavLink>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to="/skills"
+            onClick={() => setMenu(!menu)}
+          >
+            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
+              Skills
+            </SectionsMb>
+          </NavLink>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to="/about"
+            onClick={() => setMenu(!menu)}
+          >
+            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
+              About
+            </SectionsMb>
+          </NavLink>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to="/contact"
+            onClick={() => setMenu(!menu)}
+          >
+            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
+              Contact
+            </SectionsMb>
+          </NavLink>
+        </MenuBody>
       </Menu>
     </>
   );
@@ -85,11 +144,13 @@ const Nav = styled.div`
   left: 0;
   align-items: center;
   height: 70px;
+  transition: 0.5s;
 
   @media (max-width: 600px) {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    height: 80px;
   }
 `;
 
@@ -101,16 +162,15 @@ const Sections = styled.div`
     display: none;
   }
 `;
-const BtnMenu = styled.button`
-  display: none;
-  @media (max-width: 600px) {
-    display: flex;
-  }
+const SectionsMb = styled.div`
+  font-size: 50px;
+  font-weight: bolder;
+  margin: 35px;
+  font-family: Arial;
 `;
 const Menu = styled.div`
   height: 100vh;
   width: 100vw;
-  background-color: tomato;
   top: 0;
   left: 0;
   position: fixed;
@@ -129,11 +189,20 @@ const BackBtn = styled.div`
   align-items: flex-end;
 `;
 const MenuTitle = styled.div`
-  width: 100vw;
+  width: 95vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: 30px;
 `;
-const TextMenu = styled.div`
-  font-size: 50px;
-  padding-top: 10px;
+const OpenMenuBtn = styled.div`
+  display: none;
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+const MenuBody = styled.div`
+  margin-top: 10%;
+  height: 80vh;
+  justify-content: space-between;
 `;

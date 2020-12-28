@@ -2,14 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import Github from "../Images/Github";
 import LinkedIn from "../Images/LinkedIn";
+import Gmail from "../Images/Gmail";
+import Twitter from "../Images/Twitter";
+import Colors from "../../Colors";
+import { useSelector } from "react-redux";
 
 const Foot = styled.div`
-  height: 30vh;
+  bottom: 0;
+  height: auto;
+  padding-top: 40px;
   background-color: black;
-  margin: 0;
   width: 100vw;
-  padding: 1px;
-
+  padding-bottom: 20px;
   @media (max-width: 600px) {
     height: auto;
   }
@@ -44,21 +48,23 @@ const Rows = styled.div`
   margin-top: 10px;
   display: grid;
   grid-template-columns: 0.5fr 4fr;
+  @media (max-width: 600px) {
+    width: auto;
+  }
 `;
 
 const Footer = () => {
+  const color = useSelector((store) => store.nocturneMode);
   return (
-    <Foot>
+    <Foot style={{ backgroundColor: Colors(color).SECONDARY }}>
       <Row>
         <Column>
           <Text>Gabriel Pereyra</Text>
-          <Text>Linked In</Text>
-          <Text>GitHub</Text>
-        </Column>
-        <Column>
+          <Text>Full Stack developer</Text>
           <Text>Ubicación</Text>
           <Text>Buenos Aires, Argentina</Text>
-          <Text>😊</Text>
+        </Column>
+        <Column>
           <Rows>
             <Github color="white" size="30" />
             <Link href="https://github.com/pereyrago">
@@ -71,9 +77,19 @@ const Footer = () => {
               linkedin.com/in/gabi-pereyra/
             </Link>
           </Rows>
+          <Rows>
+            <Gmail color="white" size="30" />
+            <Link href="mailto:pereyrago@gmail.com">pereyrago@gmail.com</Link>
+          </Rows>
+          <Rows>
+            <Twitter color="white" size="30" />
+            <Link href="https://www.linkedin.com/in/gabi-pereyra/">
+              twitter.com/gabi-pereyra/
+            </Link>
+          </Rows>
         </Column>
       </Row>
-      <Text>Copiright @ Gabriel Pereyra Todos los derechos reservados</Text>
+      <Text style={{ textAlign: "center" }}>¯\_(ツ)_/¯</Text>
     </Foot>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Github({ color, size, ...props }) {
+export default function RightArrow({ color, size, ...props }) {
   return (
     <svg fill={color} viewBox="0 0 20.633 20.633" width={size} height={size}>
       <path

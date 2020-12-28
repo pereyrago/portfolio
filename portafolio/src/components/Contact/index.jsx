@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Form from "./Form";
 import styled from "styled-components";
 
@@ -8,6 +8,8 @@ const ContactCont = styled.div`
   height: "100vh";
   width: "100vw";
   background-color: "blue";
+  padding-bottom: 40px;
+  padding: 20px;
   @media (max-width: 600px) {
     flex-direction: column;
   }
@@ -15,7 +17,6 @@ const ContactCont = styled.div`
 const Contact = () => {
   return (
     <>
-      <h1>Contact</h1>
       <ContactCont>
         <p>
           Por favor no olvides crear tu página de agradecimiento, es una página

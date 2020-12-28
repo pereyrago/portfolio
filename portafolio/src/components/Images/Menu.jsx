@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Github({ color, size, ...props }) {
+export default function Menu({ color, size, ...props }) {
   return (
     <svg fill={color} viewBox="0 0 384.833 384.833" width={size} height={size}>
       <rect

@@ -2,3 +2,8 @@ body {
   margin: 0;
   margin-top: 70px;
 }
+@media (max-width: 600px) {
+  body {
+    margin-top: 80px;
+  }
+}

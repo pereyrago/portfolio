@@ -12,6 +12,11 @@ const FormCont = styled.div`
     width: 80%;
   }
 `;
+const TextArea = styled.textarea`
+  resize: none;
+  height: 250px;
+  font-size: 16px;
+`;
 
 const Form = () => {
   const [form, setForm] = useState({});
@@ -36,12 +41,12 @@ const Form = () => {
         />
         <h3>LinkedIn</h3>
         <input
-          placeholder="Tu Linkedin"
+          placeholder="Tu Linkedin opcional"
           name="linkedIn"
           onChange={formFiller}
         />
         <h3>Comentario</h3>
-        <textarea
+        <TextArea
           placeholder="Dejame un comentario"
           name="comment"
           onChange={formFiller}

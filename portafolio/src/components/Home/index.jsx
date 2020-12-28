@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Home = () => {
   return (
     <>
       <div
-        style={{
-          height: "100vh",
-          width: "100vw",
-          backgroundColor: "yellow",
-          margin: 0,
-        }}
+        style={{ height: "100vh", width: "100vw", backgroundColor: "yellow" }}
       >
-        <h1>ASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS Pereyra</h1>
+        <h1>Proyectos</h1>
       </div>
     </>
   );
