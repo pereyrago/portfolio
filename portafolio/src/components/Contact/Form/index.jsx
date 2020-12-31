@@ -5,7 +5,7 @@ const FormCont = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 70%;
   height: 30%;
   margin-left: 5%;
   margin-right: 5%;

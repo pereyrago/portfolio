@@ -1,8 +1,20 @@
 body {
   margin: 0;
   background-color: yellowgreen;
-  width: 100vw;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 html {
   scroll-behavior: smooth;
+}
+:root {
+  --PRIMARY: #287094;
+  --SECONDARY: #023246;
+  --TERTIARY: #d4d4ce;
+  --BACKGROUND: #f6f6f6;
+  --ALTSECONDARY: #051b24;
+}
+div {
+  margin: 0;
+  padding: 0;
 }

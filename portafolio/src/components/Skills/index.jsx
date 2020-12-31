@@ -6,18 +6,15 @@ import Colors from "../../Colors";
 const SkillCont = styled.div`
   height: 100vh;
   width: 100%;
-  padding: 1px;
+  padding-bottom: 1;
+  background-color: var(--TERTIARY);
   padding-top: 70px;
 `;
 
 const Skills = ({ id }) => {
-  const nocturneMode = useSelector((store) => store.nocturneMode);
   return (
     <>
-      <SkillCont
-        id={id}
-        style={{ backgroundColor: Colors(nocturneMode).TERTIARY }}
-      >
+      <SkillCont id={id}>
         <h1>Skills</h1>
       </SkillCont>
     </>

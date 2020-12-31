@@ -4,16 +4,14 @@ import Github from "../Images/Github";
 import LinkedIn from "../Images/LinkedIn";
 import Gmail from "../Images/Gmail";
 import Twitter from "../Images/Twitter";
-import Colors from "../../Colors";
-import { useSelector } from "react-redux";
 
 const Foot = styled.div`
   bottom: 0;
   height: auto;
   padding-top: 40px;
-  background-color: black;
+  padding-bottom: 1px;
+  background-color: var(--SECONDARY);
   width: 100%;
-  padding-bottom: 20px;
   @media (max-width: 600px) {
     height: auto;
   }
@@ -44,7 +42,7 @@ const Row = styled.div`
   }
 `;
 const Rows = styled.div`
-  width: 22vw;
+  width: 22%;
   margin-top: 10px;
   display: grid;
   grid-template-columns: 0.5fr 4fr;
@@ -54,14 +52,12 @@ const Rows = styled.div`
 `;
 
 const Footer = () => {
-  const color = useSelector((store) => store.nocturneMode);
   return (
-    <Foot style={{ backgroundColor: Colors(color).SECONDARY }}>
+    <Foot>
       <Row>
         <Column>
           <Text>Gabriel Pereyra</Text>
           <Text>Full Stack developer</Text>
-          <Text>Ubicación</Text>
           <Text>Buenos Aires, Argentina</Text>
         </Column>
         <Column>

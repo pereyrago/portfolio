@@ -1,26 +1,33 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Colors from "../../Colors.js";
-import { useSelector, useDispatch } from "react-redux";
-import changeNocturneMode from "../../store/actions";
 import RightArrow from "../Images/RightArrow";
 import OpenMenu from "../Images/Menu";
 
 const NavBar = () => {
   const [menu, setMenu] = useState(true);
-  const nocturneMode = useSelector((shrefre) => shrefre.nocturneMode);
-
-  const dispatch = useDispatch();
-
-  const modoNoche = () => {
-    return dispatch(changeNocturneMode);
+  let modoDia = true;
+  const switchMode = () => {
+    if (modoDia) {
+      document.documentElement.style.setProperty("--PRIMARY", "#164f6b");
+      document.documentElement.style.setProperty("--SECONDARY", "#051b24");
+      document.documentElement.style.setProperty("--TERTIARY", "#b8b8b2");
+      document.documentElement.style.setProperty("--BACKGROUND", "#2e2d2d");
+      document.documentElement.style.setProperty("--ALTSECONDARY", "#023246");
+    } else {
+      document.documentElement.style.setProperty("--PRIMARY", "#287094");
+      document.documentElement.style.setProperty("--SECONDARY", "#023246");
+      document.documentElement.style.setProperty("--TERTIARY", "#d4d4ce");
+      document.documentElement.style.setProperty("--BACKGROUND", "#f6f6f6");
+      document.documentElement.style.setProperty("--ALTSECONDARY", "#051b24");
+    }
+    return (modoDia = !modoDia);
   };
 
   return (
     <>
-      <Nav style={{ backgroundColor: Colors(nocturneMode).SECONDARY }}>
+      <Nav>
         <button
-          onClick={() => modoNoche()}
+          onClick={switchMode}
           style={{
             textAlign: "center",
           }}
@@ -28,44 +35,33 @@ const NavBar = () => {
           LOGO
         </button>
         <a style={{ textDecoration: "none" }} href="#home">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            Inicio
-          </Sections>
+          <Sections>Inicio</Sections>
         </a>
         <a style={{ textDecoration: "none" }} href="#proyects">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            Proyectos
-          </Sections>
+          <Sections>Proyectos</Sections>
         </a>
         <a style={{ textDecoration: "none" }} href="#skills">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            Habilidades
-          </Sections>
+          <Sections>Habilidades</Sections>
         </a>
         <a style={{ textDecoration: "none" }} href="#about">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            Sobre mi
-          </Sections>
+          <Sections>Sobre mi</Sections>
         </a>
         <a style={{ textDecoration: "none" }} href="#contact">
-          <Sections style={{ color: Colors(nocturneMode).TERTIARY }}>
-            Contáctame
-          </Sections>
+          <Sections>Contáctame</Sections>
         </a>
 
         <OpenMenuBtn onClick={() => setMenu(!menu)}>
-          <OpenMenu size="38" color={Colors(nocturneMode).TERTIARY} />
+          <OpenMenu color="var(--TERTIARY)" size="38" />
         </OpenMenuBtn>
       </Nav>
       <Menu
         style={{
           transform: menu ? "translatex(200%)" : "translatex(0%)",
-          backgroundColor: Colors(nocturneMode).PRIMARY,
         }}
       >
         <MenuTitle>
           <button
-            onClick={() => modoNoche()}
+            onClick={() => switchMode()}
             style={{
               textAlign: "center",
             }}
@@ -73,7 +69,7 @@ const NavBar = () => {
             LOGO
           </button>
           <BackBtn onClick={() => setMenu(!menu)}>
-            <RightArrow size={50} color={Colors(nocturneMode).TERTIARY} />
+            <RightArrow size={50} color="var(--TERTIARY)" />
           </BackBtn>
         </MenuTitle>
         <MenuBody>
@@ -82,45 +78,35 @@ const NavBar = () => {
             href="#home"
             onClick={() => setMenu(!menu)}
           >
-            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Inicio
-            </SectionsMb>
+            <SectionsMb>Inicio</SectionsMb>
           </a>
           <a
             style={{ textDecoration: "none" }}
             href="#proyects"
             onClick={() => setMenu(!menu)}
           >
-            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Proyectos
-            </SectionsMb>
+            <SectionsMb>Proyectos</SectionsMb>
           </a>
           <a
             style={{ textDecoration: "none" }}
             href="#skills"
             onClick={() => setMenu(!menu)}
           >
-            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Habilidades
-            </SectionsMb>
+            <SectionsMb>Habilidades</SectionsMb>
           </a>
           <a
             style={{ textDecoration: "none" }}
             href="#about"
             onClick={() => setMenu(!menu)}
           >
-            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Sobre mí
-            </SectionsMb>
+            <SectionsMb>Sobre mí</SectionsMb>
           </a>
           <a
             style={{ textDecoration: "none" }}
             href="#contact"
             onClick={() => setMenu(!menu)}
           >
-            <SectionsMb style={{ color: Colors(nocturneMode).TERTIARY }}>
-              Contáctame
-            </SectionsMb>
+            <SectionsMb>Contáctame</SectionsMb>
           </a>
         </MenuBody>
       </Menu>
@@ -137,6 +123,7 @@ const Nav = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin: 0;
+  background-color: var(--SECONDARY);
   position: fixed;
   top: 0;
   left: 0;
@@ -156,6 +143,7 @@ const Sections = styled.div`
   font-size: 20px;
   font-weight: bolder;
   font-family: Arial;
+  color: var(--TERTIARY);
   @media (max-width: 600px) {
     display: none;
   }
@@ -163,6 +151,7 @@ const Sections = styled.div`
 const SectionsMb = styled.div`
   font-size: 40px;
   font-weight: bolder;
+  color: var(--TERTIARY);
   margin: 40px;
   font-family: Arial;
 `;
@@ -173,11 +162,10 @@ const Menu = styled.div`
   left: 0;
   position: fixed;
   z-index: 1;
-  transform: translatex(-100%);
 
+  background-color: var(--PRIMARY);
   transition: 0.5s;
   @media (max-width: 600px) {
-    transform: translatex(0%);
     transition: 0.5s;
   }
 `;
@@ -187,7 +175,7 @@ const BackBtn = styled.div`
   align-items: flex-end;
 `;
 const MenuTitle = styled.div`
-  width: 95vw;
+  width: 95%;
   display: flex;
   justify-content: space-between;
   margin-left: 30px;
@@ -200,7 +188,7 @@ const OpenMenuBtn = styled.div`
   }
 `;
 const MenuBody = styled.div`
-  margin-hrefp: 10%;
+  margin-top: 10%;
   height: 80vh;
   justify-content: space-between;
 `;
